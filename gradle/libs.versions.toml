@@ -1,0 +1,10 @@
+[versions]
+kotlin = "1.9.21"
+kotest = "5.8.0"
+
+[libraries]
+kotlin-test = { group = "org.jetbrains.kotlin", name = "kotlin-test", version.ref = "kotlin" }
+kotest = { group = "io.kotest", name = "kotest-runner-junit5", version.ref = "kotest" }
+
+[plugins]
+kotlin-default = { id = "org.jetbrains.kotlin.jvm", version.ref = "kotlin" }
