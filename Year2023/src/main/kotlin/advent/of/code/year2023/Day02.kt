@@ -34,7 +34,7 @@ object Day02 : Problem(Day02::class) {
         }
     }
 
-    fun partOne(path: String) = solve(path) { inputs ->
+    fun partOne(path: String) = singleLine(path) { inputs ->
 
         inputs
             .map(::inputToGame)
@@ -42,16 +42,16 @@ object Day02 : Problem(Day02::class) {
             .sumOf { it.id }
     }
 
-    fun partTwo(path: String) = solve(path) { inputs ->
+    fun partTwo(path: String) = singleLine(path) { inputs ->
 
         inputs
             .map(::inputToGame)
-            .map { game ->
+            .sumOf { game ->
                 val maxRed = game.sets.maxOf { it.red }
                 val maxGreen = game.sets.maxOf { it.green }
                 val maxBlue = game.sets.maxOf { it.blue }
 
                 maxRed * maxGreen * maxBlue
-            }.sum()
+            }
     }
 }
