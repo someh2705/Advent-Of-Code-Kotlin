@@ -16,16 +16,10 @@ class Day01Test : DescribeSpec({
     }
 
     describe("compute solution") {
-        it("solution not asserted") {
-            Debugger.solution {
-                /**
-                 * Results {
-                 * 	=> partOne: 54239 |  7ms
-                 * 	=> partTwo: 55343 | 17ms
-                 * }
-                 */
-                inspect(Day01::partOne, "problem.txt")
-                inspect(Day01::partTwo, "problem.txt")
+        it("inspect answer") {
+            Debugger.inspect {
+                log(Day01::partOne, "problem.txt")
+                log(Day01::partTwo, "problem.txt")
             } shouldBe Unit
         }
     }

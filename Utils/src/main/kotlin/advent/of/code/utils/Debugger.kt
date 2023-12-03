@@ -1,8 +1,12 @@
 package advent.of.code.utils
 
-public object Debugger : Inspector {
+public object Debugger : Inspector, Benchmark {
 
-    override fun solution(block: InspectorScope.() -> Unit) {
-        InspectorImpl().solution(block)
+    override fun inspect(block: InspectorScope.() -> Unit) {
+        InspectorImpl().inspect(block)
+    }
+
+    override fun benchmark(block: BenchmarkScope.() -> Unit) {
+
     }
 }

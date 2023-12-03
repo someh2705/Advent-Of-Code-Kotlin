@@ -16,11 +16,17 @@ class Day03Test : DescribeSpec({
     }
 
     describe("compute solution") {
-        it("solution not asserted") {
-            Debugger.solution {
-                inspect(Day03::partOne, "problem.txt")
-                inspect(Day03::partTwo, "problem.txt")
+        it("inspect answer") {
+            Debugger.inspect {
+                log(Day03::partOne, "problem.txt")
+                log(Day03::partTwo, "problem.txt")
             } shouldBe Unit
+        }
+
+        it("create benchmark file") {
+            Debugger.benchmark {
+
+            }
         }
     }
 })
