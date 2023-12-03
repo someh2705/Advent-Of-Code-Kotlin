@@ -44,11 +44,11 @@ internal class BenchmarkImpl : Benchmark {
         BenchmarkScopeImpl {
             println(
             """
-                Benchmark: ${it.prefix} {
-                    => Max Time: ${it.max}
-                    => Min Time: ${it.min}
-                    => Mid Time: ${it.mid}
-                }
+                Benchmark: ${it.prefix}    
+                => Max Time: ${it.max}    
+                => Min Time: ${it.min}    
+                => Mid Time: ${it.mid}    
+                    
             """.trimIndent())
         }.apply(block)
     }
