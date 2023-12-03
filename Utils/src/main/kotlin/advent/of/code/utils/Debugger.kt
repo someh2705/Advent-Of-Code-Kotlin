@@ -6,7 +6,7 @@ public object Debugger : Inspector, Benchmark {
         InspectorImpl().inspect(block)
     }
 
-    override fun benchmark(block: BenchmarkScope.() -> Unit) {
-        BenchmarkImpl().benchmark(block)
+    override fun benchmark(path: String, block: BenchmarkScope.() -> Unit) {
+        BenchmarkImpl().benchmark(path, block)
     }
 }

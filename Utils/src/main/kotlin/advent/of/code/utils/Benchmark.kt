@@ -4,6 +4,10 @@ import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.async
 import kotlinx.coroutines.awaitAll
 import kotlinx.coroutines.runBlocking
+import kotlin.io.path.Path
+import kotlin.io.path.appendText
+import kotlin.io.path.createFile
+import kotlin.io.path.deleteIfExists
 import kotlin.reflect.KFunction1
 import kotlin.time.Duration
 import kotlin.time.measureTime
@@ -15,7 +19,7 @@ public interface BenchmarkScope {
 
 internal interface Benchmark {
 
-    fun benchmark(block: BenchmarkScope.() -> Unit)
+    fun benchmark(path: String, block: BenchmarkScope.() -> Unit)
 }
 
 internal const val BatchSize = 100
@@ -39,17 +43,27 @@ internal class BenchmarkScopeImpl(val commit: (BenchmarkResult) -> Unit) : Bench
     }
 }
 
+private const val Resources = "src/main/resources"
+
 internal class BenchmarkImpl : Benchmark {
-    override fun benchmark(block: BenchmarkScope.() -> Unit) {
+    override fun benchmark(path: String, block: BenchmarkScope.() -> Unit) {
+        val benchFile = Path("$Resources/$path/benchmark.txt")
+        benchFile.deleteIfExists()
+        benchFile.createFile()
+
         BenchmarkScopeImpl {
-            println(
-            """
-                Benchmark: ${it.prefix}    
-                => Max Time: ${it.max}    
-                => Min Time: ${it.min}    
-                => Mid Time: ${it.mid}    
-                    
-            """.trimIndent())
+            benchFile.apply {
+                appendText(
+                """
+                    Benchmark: ${it.prefix} {  
+                        => Max Time: ${it.max}    
+                        => Min Time: ${it.min}    
+                        => Mid Time: ${it.mid}    
+                    }
+                
+                """.trimIndent()
+                )
+            }
         }.apply(block)
     }
 }
