@@ -1,0 +1,11 @@
+Benchmark: partOne {
+    => Max Time: 114.459702ms
+    => Min Time: 1.827400ms
+    => Mid Time: 4.932300ms
+}
+
+Benchmark: partTwo {
+    => Max Time: 317.230008ms
+    => Min Time: 31.211ms
+    => Mid Time: 111.683602ms
+}

@@ -2,13 +2,14 @@
 kotlin = "1.9.21"
 kotest = "5.8.0"
 benchmark = "0.4.2"
+coroutines = "1.7.3"
 
 [libraries]
 kotlin-test = { group = "org.jetbrains.kotlin", name = "kotlin-test", version.ref = "kotlin" }
 kotest = { group = "io.kotest", name = "kotest-runner-junit5", version.ref = "kotest" }
 kotlinx-benchmark = { group = "org.jetbrains.kotlinx", name = "kotlinx-benchmark-runtime", version.ref = "benchmark" }
+kotlinx-coroutines = { group = "org.jetbrains.kotlinx", name = "kotlinx-coroutines-core", version.ref = "coroutines" }
 
 [plugins]
 kotlin-default = { id = "org.jetbrains.kotlin.jvm", version.ref = "kotlin" }
 kotlinx-benchmark = { id = "org.jetbrains.kotlinx.benchmark", version.ref = "benchmark" }
-kotlin-plugin-allopen = { id = "org.jetbrains.kotlin.plugin.allopen", version.ref = "kotlin" }

@@ -1,6 +1,5 @@
 plugins {
     alias(libs.plugins.kotlin.default)
-    alias(libs.plugins.kotlin.plugin.allopen)
     alias(libs.plugins.kotlinx.benchmark)
 }
 
@@ -12,8 +11,5 @@ kotlin {
 
 dependencies {
     implementation(libs.kotlinx.benchmark)
-}
-
-allOpen {
-    annotations("org.openjdk.jmh.annotations.State")
+    implementation(libs.kotlinx.coroutines)
 }

@@ -23,10 +23,11 @@ class Day03Test : DescribeSpec({
             } shouldBe Unit
         }
 
-        it("create benchmark file") {
+        it("benchmark answer") {
             Debugger.benchmark {
-
-            }
+                create(Day03::partOne, "problem.txt")
+                create(Day03::partTwo, "problem.txt")
+            } shouldBe Unit
         }
     }
 })

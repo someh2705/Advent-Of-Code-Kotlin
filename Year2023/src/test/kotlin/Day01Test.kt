@@ -22,5 +22,12 @@ class Day01Test : DescribeSpec({
                 log(Day01::partTwo, "problem.txt")
             } shouldBe Unit
         }
+
+        it("benchmark answer") {
+            Debugger.benchmark {
+                create(Day01::partOne, "problem.txt")
+                create(Day01::partTwo, "problem.txt")
+            } shouldBe Unit
+        }
     }
 })
