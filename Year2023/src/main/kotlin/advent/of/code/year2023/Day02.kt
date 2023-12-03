@@ -41,4 +41,17 @@ object Day02 : Problem(Day02::class) {
             .filter(::validGame)
             .sumOf { it.id }
     }
+
+    fun partTwo(path: String) = solve(path) { inputs ->
+
+        inputs
+            .map(::inputToGame)
+            .map { game ->
+                val maxRed = game.sets.maxOf { it.red }
+                val maxGreen = game.sets.maxOf { it.green }
+                val maxBlue = game.sets.maxOf { it.blue }
+
+                maxRed * maxGreen * maxBlue
+            }.sum()
+    }
 }

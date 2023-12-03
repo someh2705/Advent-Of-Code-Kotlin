@@ -10,9 +10,9 @@ class Day02Test : DescribeSpec({
             Day02.partOne("example01.txt") shouldBe 8
         }
 
-//        it("part two answer is 281") {
-//            Day01.partTwo("example02.txt") shouldBe 281
-//        }
+        it("part two answer is 2286") {
+            Day02.partTwo("example01.txt") shouldBe 2286
+        }
     }
 
     describe("compute solution") {
@@ -20,11 +20,12 @@ class Day02Test : DescribeSpec({
             Debugger.solution {
                 /**
                  * Results {
-                 * 	=> partOne: 2716 |  6ms
+                 * 	=> partOne: 2716  |  4ms
+                 * 	=> partTwo: 72227 |  2ms
                  * }
                  */
                 inspect(Day02::partOne, "problem.txt")
-//                inspect(Day02::partTwo, "problem.txt")
+                inspect(Day02::partTwo, "problem.txt")
             } shouldBe Unit
         }
     }
