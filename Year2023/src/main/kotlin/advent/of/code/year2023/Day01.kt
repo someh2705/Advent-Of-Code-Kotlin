@@ -1,8 +1,6 @@
 package advent.of.code.year2023
 
-private const val Path = "Day01"
-
-object Day01 : Problem(Path) {
+object Day01 : Problem(Day01::class) {
 
     fun partOne(path: String) = solve(path) { inputs ->
         val regex = Regex("\\d")
