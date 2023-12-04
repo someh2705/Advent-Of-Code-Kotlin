@@ -2,6 +2,7 @@ import advent.of.code.utils.Debugger
 import advent.of.code.year2023.Day01
 import advent.of.code.year2023.Day02
 import advent.of.code.year2023.Day03
+import advent.of.code.year2023.Day04
 import io.kotest.core.spec.style.DescribeSpec
 import io.kotest.matchers.shouldBe
 
@@ -25,6 +26,13 @@ class Benchmark : DescribeSpec({
             Debugger.benchmark(Day03::class.simpleName!!) {
                 create(Day03::partOne, "problem.txt")
                 create(Day03::partTwo, "problem.txt")
+            } shouldBe Unit
+        }
+
+        it("create day4 bench file") {
+            Debugger.benchmark(Day04::class.simpleName!!) {
+                create(Day04::partOne, "problem.txt")
+                create(Day04::partTwo, "problem.txt")
             } shouldBe Unit
         }
     }
